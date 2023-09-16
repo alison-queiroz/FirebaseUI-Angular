@@ -1,6 +1,6 @@
 import { Inject, Injectable, NgZone, Optional } from '@angular/core';
 import * as firebaseui from 'firebaseui';
-import {FIREBASE_APP_NAME, FIREBASE_OPTIONS, FirebaseApp, ɵfirebaseAppFactory} from '@angular/fire/compat';
+import { FIREBASE_APP_NAME, FIREBASE_OPTIONS, FirebaseApp, ɵfirebaseAppFactory } from '@angular/fire/compat';
 import { FirebaseOptions, FirebaseAppSettings } from 'firebase/app';
 
 import _firebase from 'firebase/compat/app';
@@ -12,10 +12,10 @@ type UseEmulatorArguments = [string, number];
 export class FirebaseuiAngularLibraryService {
   public firebaseUiInstance: firebaseui.auth.AuthUI;
 
-  constructor(@Inject(FIREBASE_OPTIONS) options: FirebaseOptions,
-              @Optional() @Inject(FIREBASE_APP_NAME) nameOrConfig: string | FirebaseAppSettings | null | undefined,
-              @Optional() @Inject(USE_AUTH_EMULATOR) _useEmulator: any, // can't use the tuple here
-              zone: NgZone) {
+  constructor(@Inject(FIREBASE_OPTIONS) readonly options: FirebaseOptions,
+    @Optional() @Inject(FIREBASE_APP_NAME) readonly nameOrConfig: string | FirebaseAppSettings | null | undefined,
+    @Optional() @Inject(USE_AUTH_EMULATOR) readonly _useEmulator: any,
+    zone: NgZone) {
     // noinspection JSNonASCIINames
     const app: FirebaseApp = ɵfirebaseAppFactory(options, zone, nameOrConfig);
 

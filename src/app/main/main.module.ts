@@ -1,7 +1,7 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {MainComponent} from './main.component';
-import {FirebaseUIModule} from 'firebaseui-angular';
+import {FirebaseUIModule} from 'firebaseui-angular-v2';
 import {RouterModule, Routes} from '@angular/router';
 
 const routes: Routes = [

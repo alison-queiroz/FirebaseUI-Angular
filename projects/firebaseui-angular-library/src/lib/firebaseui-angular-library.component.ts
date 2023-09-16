@@ -1,6 +1,6 @@
-import {Component, EventEmitter, Inject, NgZone, OnDestroy, OnInit, Output} from '@angular/core';
-import {AngularFireAuth} from '@angular/fire/compat/auth';
-import {Subscription} from 'rxjs';
+import { Component, EventEmitter, Inject, NgZone, OnDestroy, OnInit, Output } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { Subscription } from 'rxjs';
 import {
   FirebaseUISignInFailure,
   FirebaseUISignInSuccessWithAuthResult,
@@ -8,7 +8,7 @@ import {
 } from './firebaseui-angular-library.helper';
 import * as firebaseui from 'firebaseui';
 import firebase from 'firebase/compat/app';
-import {FirebaseuiAngularLibraryService} from './firebaseui-angular-library.service';
+import { FirebaseuiAngularLibraryService } from './firebaseui-angular-library.service';
 import 'firebase/compat/auth';
 import User = firebase.User;
 import UserCredential = firebase.auth.UserCredential;
@@ -20,17 +20,17 @@ import UserCredential = firebase.auth.UserCredential;
 export class FirebaseuiAngularLibraryComponent implements OnInit, OnDestroy {
   private static readonly COMPUTED_CALLBACKS = 'COMPUTED_CALLBACKS';
 
-  @Output('signInSuccessWithAuthResult') signInSuccessWithAuthResultCallback: EventEmitter<FirebaseUISignInSuccessWithAuthResult> = new EventEmitter(); // tslint:disable-line
-  @Output('signInFailure') signInFailureCallback: EventEmitter<FirebaseUISignInFailure> = new EventEmitter(); // tslint:disable-line
-  @Output('uiShown') uiShownCallback: EventEmitter<void> = new EventEmitter(); // tslint:disable-line
+  @Output('signInSuccessWithAuthResult') readonly signInSuccessWithAuthResultCallback: EventEmitter<FirebaseUISignInSuccessWithAuthResult> = new EventEmitter(); // tslint:disable-line
+  @Output('signInFailure') readonly signInFailureCallback: EventEmitter<FirebaseUISignInFailure> = new EventEmitter(); // tslint:disable-line
+  @Output('uiShown') readonly uiShownCallback: EventEmitter<void> = new EventEmitter(); // tslint:disable-line
 
   private subscription: Subscription;
 
-  constructor(private angularFireAuth: AngularFireAuth,
-              @Inject('firebaseUIAuthConfig') private _firebaseUiConfig: NativeFirebaseUIAuthConfig,
-              @Inject('firebaseUIAuthConfigFeature') private _firebaseUiConfig_Feature: NativeFirebaseUIAuthConfig,
-              private ngZone: NgZone,
-              private firebaseUIService: FirebaseuiAngularLibraryService) {
+  constructor(private readonly angularFireAuth: AngularFireAuth,
+    @Inject('firebaseUIAuthConfig') private readonly _firebaseUiConfig: NativeFirebaseUIAuthConfig,
+    @Inject('firebaseUIAuthConfigFeature') private readonly _firebaseUiConfig_Feature: NativeFirebaseUIAuthConfig,
+    private readonly ngZone: NgZone,
+    private readonly firebaseUIService: FirebaseuiAngularLibraryService) {
   }
 
   get firebaseUiConfig(): NativeFirebaseUIAuthConfig {

@@ -3,7 +3,7 @@
   "compilerOptions": {
     "baseUrl": "./",
     "importHelpers": true,
-    "module": "es2020",
+    "module": "ES2022",
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "declaration": false,
@@ -19,10 +19,10 @@
       "dom"
     ],
     "paths": {
-      "firebaseui-angular": [
+      "firebaseui-angular-v2": [
         "dist/firebaseui-angular-library"
       ],
-      "firebaseui-angular/*": [
+      "firebaseui-angular-v2/*": [
         "dist/firebaseui-angular-library/*"
       ]
     },
