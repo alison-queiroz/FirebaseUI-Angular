@@ -10,12 +10,12 @@ type UseEmulatorArguments = [string, number];
 
 @Injectable()
 export class FirebaseuiAngularLibraryService {
-  public firebaseUiInstance: firebaseui.auth.AuthUI;
+  public readonly firebaseUiInstance: firebaseui.auth.AuthUI;
 
-  constructor(@Inject(FIREBASE_OPTIONS) readonly options: FirebaseOptions,
-    @Optional() @Inject(FIREBASE_APP_NAME) readonly nameOrConfig: string | FirebaseAppSettings | null | undefined,
-    @Optional() @Inject(USE_AUTH_EMULATOR) readonly _useEmulator: any,
-    zone: NgZone) {
+  constructor(@Inject(FIREBASE_OPTIONS) private readonly options: FirebaseOptions,
+    @Optional() @Inject(FIREBASE_APP_NAME) private readonly nameOrConfig: string | FirebaseAppSettings | null | undefined,
+    @Optional() @Inject(USE_AUTH_EMULATOR) private readonly _useEmulator: any,
+    private readonly zone: NgZone) {
     // noinspection JSNonASCIINames
     const app: FirebaseApp = ɵfirebaseAppFactory(options, zone, nameOrConfig);
 

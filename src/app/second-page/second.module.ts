@@ -11,7 +11,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
-    CommonModule,
+    // CommonModule,
     FirebaseUIModule.forFeature({
       signInOptions: [
         firebase.auth.GoogleAuthProvider.PROVIDER_ID]
